@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -10,13 +9,13 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 // Serve static files (HTML, CSS, JS)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); // Ensure this line is correct
 
 // API route to handle appointment booking
 app.post('/api/book', (req, res) => {
     const { name, email, date } = req.body;
 
-    // For now, just log the booking details
+    // Log the booking details for now
     console.log(`New booking: ${name}, ${email}, ${date}`);
 
     // Send a success response
